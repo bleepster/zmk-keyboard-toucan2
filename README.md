@@ -33,8 +33,9 @@ The mouse layer retains Toucan2's transparent main keys and thumb buttons
 (left: middle/left/right; right: left/right/middle). The personal keymap overrides
 only the touch processor's layer target, from 4 to 6, to avoid activating
 Navigation on touch. The original scroll override still applies on layers 1 and
-2 (now Symbols and Numbers). All trackpad gestures, sensitivity, scaling, split
-transport, display, and power settings remain the Toucan2 defaults. The default
+2 (now Symbols and Numbers). Pointer movement is scaled to 1.5× using
+`&zip_xy_scaler 3 2` in `toucan.dtsi`. Trackpad gestures, driver sensitivity,
+scroll scaling, split transport, display, and power settings remain the Toucan2 defaults. The default
 shield keymap remains available when no personal keymap is supplied.
 
 # Verification
