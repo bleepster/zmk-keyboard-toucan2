@@ -73,3 +73,19 @@ validation has not been performed. If a Studio keymap was previously saved on
 the keyboard, restore its stock keymap in Studio to use this compiled keymap.
 The imported Corne bindings do not include a Studio unlock key; Studio remains
 enabled in the left build, but no new binding has been added for unlocking it.
+
+## Manual Mouse layer follow-up (2026-09-09)
+
+The personal keymap now uses tap-Tab/hold-Mouse and the Dilemma F/S/G click
+positions plus its pointer-layer modifiers. Touch events invoke `&none`, so
+trackpad use does not change layers. Drag-scroll and sniping are not included.
+This supersedes the original migration's automatic layer-6 activation above.
+
+All three matrix targets configured, compiled, linked, and generated UF2 files
+using the same SDK/build procedure above. Source checks verified seven 42-key
+layers, all click/modifier positions, and no other layer changes beyond Base
+Tab. The generated left devicetree confirmed Mouse/Tab, touch `&none`, and 1.5×
+scaling; the right devicetree still had a 500 ms hold threshold for this change.
+Dependency warnings remain. Hardware validation is pending; use the README's
+manual-layer and drag checklist. Local artifacts/logs are under
+`firmware-builds/2026-09-09-mouse-layer/` (ignored by Git).

@@ -23,20 +23,27 @@ aliases, and all six layers in their original order:
 | 3 | Functions | T or Y |
 | 4 | Navigation | Caps Lock |
 | 5 | Misc/BT | Z or period |
-| 6 | Mouse | Touch the trackpad |
+| 6 | Mouse | Tab |
 
 The six outer-column keys remain disabled, as in the Corne configuration.
 The Functions-layer underglow toggle is inactive unless
 `CONFIG_ZMK_RGB_UNDERGLOW` is enabled; Toucan2's status LED is a separate feature.
 
-The mouse layer retains Toucan2's transparent main keys and thumb buttons
-(left: middle/left/right; right: left/right/middle). The personal keymap overrides
-only the touch processor's layer target, from 4 to 6, to avoid activating
-Navigation on touch. The original scroll override still applies on layers 1 and
-2 (now Symbols and Numbers). Pointer movement is scaled to 1.5× using
-`&zip_xy_scaler 3 2` in `toucan.dtsi`. Trackpad gestures, driver sensitivity,
-scroll scaling, split transport, display, and power settings remain the Toucan2 defaults. The default
-shield keymap remains available when no personal keymap is supplied.
+Hold the left middle thumb key (Tab) to enter Mouse; tap it to send Tab.
+Release it to leave Mouse. Touching the trackpad does not change layers.
+The Mouse layer follows the Dilemma click/modifier positions: F is left click,
+S is right click, G is middle click, D is Ctrl, A is Ctrl+Shift, Z is Alt,
+X is Shift, C is Alt+Shift, Escape is MEH, and W is Hyper. Positions refer to
+Base-layer keys. Hold Tab and F while moving a trackpad finger to drag, then
+release F before Tab. Other Mouse-layer keys are disabled except the transparent
+Tab position. Dilemma's drag-scroll and sniping keys are not included.
+
+Trackpad clicks and gestures work independently of the Mouse layer. The
+original scroll override still applies on layers 1 and 2 (Symbols and Numbers).
+Pointer movement is scaled to 1.5× using `&zip_xy_scaler 3 2` in `toucan.dtsi`.
+Trackpad gestures, driver sensitivity, scroll scaling, split transport, display,
+and power settings remain the Toucan2 defaults. The default shield keymap
+remains available when no personal keymap is supplied.
 
 # Verification
 
@@ -47,9 +54,10 @@ artifacts. See [local verification](docs/verification.md) for build commands and
 results.
 
 After flashing both halves, check every layer entry listed above, home-row
-modifiers, Bluetooth/output selection, and the bootloader/reset bindings. Touch
-the trackpad and confirm that the mouse layer appears, its thumb buttons work,
-and release restores the previous layer. Check movement, taps, hold/drag,
+modifiers, Bluetooth/output selection, and the bootloader/reset bindings.
+Confirm that touching the trackpad does not change layers, tapping Tab sends Tab, and holding Tab activates Mouse until released. Check the F/S/G mouse
+buttons, modifier combinations, and text/window dragging with Tab+F.
+Check movement, taps, hold/drag,
 two-finger scrolling, zoom, and three-finger swipes, plus scrolling while Symbols
 or Numbers is held. Hardware behavior requires testing on the keyboard.
 
