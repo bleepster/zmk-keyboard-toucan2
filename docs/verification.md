@@ -89,3 +89,17 @@ scaling; the right devicetree still had a 500 ms hold threshold for this change.
 Dependency warnings remain. Hardware validation is pending; use the README's
 manual-layer and drag checklist. Local artifacts/logs are under
 `firmware-builds/2026-09-09-mouse-layer/` (ignored by Git).
+
+## Drag recognition follow-up (2026-09-09)
+
+A separate change reduces `tps43_trackpad`'s `hold-time` from 500 to 300 ms.
+The right-half target was rebuilt pristine and successfully generated its UF2.
+The generated devicetree contains `hold-time = <0x12c>` (300 decimal). A source
+comparison confirmed this is the only hardware configuration change; the
+manual Mouse layer and 1.5× pointer speed are unchanged. `git diff --check` passed.
+
+The left and settings-reset targets are unaffected and reuse the successful
+builds from the manual Mouse layer change. The complete set, logs, and checksums
+are in `firmware-builds/2026-09-09-mouse-layer-300ms/` (ignored by Git). Flash the
+left and right images to apply both changes. Hardware drag recognition and
+accidental-drag behavior still need checking with the README checklist.

@@ -41,8 +41,11 @@ Tab position. Dilemma's drag-scroll and sniping keys are not included.
 Trackpad clicks and gestures work independently of the Mouse layer. The
 original scroll override still applies on layers 1 and 2 (Symbols and Numbers).
 Pointer movement is scaled to 1.5× using `&zip_xy_scaler 3 2` in `toucan.dtsi`.
-Trackpad gestures, driver sensitivity, scroll scaling, split transport, display,
-and power settings remain the Toucan2 defaults. The default shield keymap
+Trackpad press-and-hold dragging uses a 300 ms recognition threshold (reduced
+from 500 ms). Hold your finger in place until the gesture is recognized, then
+move to drag. Keyboard-held left click does not depend on this threshold.
+Other trackpad gestures, driver sensitivity, scroll scaling, split transport,
+display, and power settings remain the Toucan2 defaults. The default shield keymap
 remains available when no personal keymap is supplied.
 
 # Verification
@@ -60,6 +63,8 @@ buttons, modifier combinations, and text/window dragging with Tab+F.
 Check movement, taps, hold/drag,
 two-finger scrolling, zoom, and three-finger swipes, plus scrolling while Symbols
 or Numbers is held. Hardware behavior requires testing on the keyboard.
+For trackpad-only dragging, check text selection and window movement with the
+shorter hold, and confirm ordinary taps/pauses do not cause unwanted drags.
 
 # License
 
