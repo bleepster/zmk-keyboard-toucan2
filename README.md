@@ -25,6 +25,12 @@ aliases, and all six layers in their original order:
 | 5 | Misc/BT | Z or period |
 | 6 | Mouse | Tab |
 
+The Caps Lock/Navigation thumb key uses a dedicated hold-tap: a tap sends
+Caps Lock with a 100 ms key-down duration to accommodate macOS's short-press
+filter, while holding still activates Navigation after the existing 200 ms
+hold-tap decision window. Other layer-tap keys keep their existing behavior.
+The owner confirmed that this adjustment resolves the Caps Lock issue on macOS.
+
 The six outer-column keys remain disabled, as in the Corne configuration.
 The Functions-layer underglow toggle is inactive unless
 `CONFIG_ZMK_RGB_UNDERGLOW` is enabled; Toucan2's status LED is a separate feature.

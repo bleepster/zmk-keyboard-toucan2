@@ -37,6 +37,23 @@
 
 / {
     behaviors {
+        // Give macOS enough key-down time to recognize the Caps Lock tap.
+        caps_tap: caps_tap {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <100>;
+            wait-ms = <0>;
+            bindings = <&macro_tap &kp CAPS>;
+        };
+
+        caps_nav: caps_nav {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&caps_tap>;
+        };
+
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
@@ -63,7 +80,7 @@
    &none  &kp ESC     &kp W        &kp E        &kp R        &lt LAYER_FUNCTIONS T       &lt LAYER_FUNCTIONS Y  &kp U        &kp I        &kp O        &kp BSPC           &none
    &none  &hm LGUI A  &hm LSHFT S  &hm LCTRL D  &hm LALT F   &lt LAYER_NUMBERS G         &lt LAYER_NUMBERS H    &hm RALT J   &hm RCTRL K  &hm RSHFT L  &hm RGUI P         &none
    &none  &lt LAYER_MISC Z &kp X   &kp C        &kp V        &kp B                       &kp N                  &kp M        &kp Q        &kp COMMA    &lt LAYER_MISC DOT &none
-                                   &lt LAYER_NAVIGATION CAPS &lt LAYER_MOUSE TAB &lt LAYER_SYMBOLS RET  &lt LAYER_SYMBOLS SPACE &mt MEH_KEY DEL &kp MEH_KEY
+                                   &caps_nav LAYER_NAVIGATION 0 &lt LAYER_MOUSE TAB &lt LAYER_SYMBOLS RET  &lt LAYER_SYMBOLS SPACE &mt MEH_KEY DEL &kp MEH_KEY
             >;
         };
 
